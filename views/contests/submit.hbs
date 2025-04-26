@@ -1,0 +1,29 @@
+{{#contentFor "sidebarActions"}}
+<div class="card">
+    <div class="card__title">
+        Actions
+    </div>
+    <div class="card__content">
+        <ul class="card__action_list">
+            <li><a href="/contests/{{problem.contestId}}">Back to Problem</a></li>
+            <li><a href="/problems/{{problem.id}}/submissions">View Submissions</a></li>
+        </ul>
+    </div>
+</div>
+{{/contentFor}}
+
+<div class="section">
+    <h2 class="section__title">Submit Solution</h2>
+    <div class="section__content">
+        <form action="/problems/{{problem.id}}/submit" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="solution">Solution File:</label>
+                <input type="file" name="solution" id="solution" accept=".cpp,.java,.py,.js,.ts" required>
+                <small class="form-text text-muted">Accepted file types: .cpp, .java, .py, .js, .ts</small>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="button">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card__title">
+        Contests
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each contests}}
+            <tr>
+                <td><a href="/contests/{{this.id}}">{{this.name}}</a></td>
+                <td>{{formatDate this.startDate "DD/MM/YYYY"}}</td>
+                <td>{{formatDate this.endDate "DD/MM/YYYY"}}</td>
+                <td>
+                    {{#if (isBefore this.startDate)}}
+                    <span class="badge badge--info">Upcoming</span>
+                    {{else if (isAfter this.endDate)}}
+                    <span class="badge badge--secondary">Ended</span>
+                    {{else}}
+                    <span class="badge badge--success">Active</span>
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{> pagination pagination=pagination}}

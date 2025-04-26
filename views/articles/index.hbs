@@ -1,0 +1,31 @@
+{{#contentFor "sidebarActions"}}
+<div class="card">
+    <div class="card__title">
+        Actions
+    </div>
+    <div class="card__content">
+        <ul class="card__action_list">
+            <li><a href="/articles/new">Post a new article</a></li>
+        </ul>
+    </div>
+</div>
+{{/contentFor}}
+
+{{#each articles}}
+<section class="section">
+    <h2 class="section__title">{{this.title}}</h2>
+    <article class="article">
+        {{{this.content}}}
+    </article>
+    <div class="section__footer">
+        <a href="/articles/{{this.id}}/edit" class="button button--link">Edit</a>
+    </div>
+</section>
+{{/each}}
+
+{{> pagination pagination=pagination}}
+
+<aside class="aside">
+    <h3 class="aside__title">Совет дня</h3>
+    <p class="aside__text">"<i>Не откладывай решение сложных задач на потом!</i>"</p>
+</aside>

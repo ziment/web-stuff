@@ -1,0 +1,28 @@
+{{#contentFor "sidebarActions"}}
+<div class="card">
+    <div class="card__title">
+        Actions
+    </div>
+    <div class="card__content">
+        <ul class="card__action_list">
+            <li><a href="/articles">Back to Articles</a></li>
+        </ul>
+    </div>
+</div>
+{{/contentFor}}
+
+<div class="section">
+    <div class="section__title">Edit Article</div>
+    <div class="section__content">
+        {{> gform
+        actionUrl=actionUrl
+        isEdit=true
+        title=article.title
+        content=article.content
+        submitButtonText="Update"
+        deleteUrl=deleteUrl
+        titleName="Title"
+        contentName="Content"
+        }}
+    </div>
+</div>

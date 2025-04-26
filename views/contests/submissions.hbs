@@ -1,0 +1,38 @@
+{{#contentFor "sidebarActions"}}
+<div class="card">
+    <div class="card__title">
+        Actions
+    </div>
+    <div class="card__content">
+        <ul class="card__action_list">
+            <li><a href="/contests/{{contest.id}}/problems">Back to Problems</a></li>
+        </ul>
+    </div>
+</div>
+{{/contentFor}}
+
+<div class="card">
+    <div class="card__title">Submissions</div>
+    <div class="card__content">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Problem</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each submissions}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.problem.title}}</td>
+                    <td>{{this.author.username}}</td>
+                    <td>{{formatDate this.createdAt}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div> 

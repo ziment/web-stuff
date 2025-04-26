@@ -1,0 +1,31 @@
+{{#if pagination}}
+<div class="pagination">
+    {{#if pagination.hasPreviousPage}}
+    <a href="{{pagination.url}}?page={{pagination.previousPage}}"
+        class="pagination__link pagination__link--prev material-symbols-sharp">
+        arrow_left
+    </a>
+    {{else}}
+    <span class="pagination__link pagination__link--disabled material-symbols-sharp">arrow_left</span>
+    {{/if}}
+
+    <div class="pagination__pages">
+        {{#each pagination.pages}}
+        {{#if (eq this ../pagination.currentPage)}}
+        <span class="pagination__page pagination__page--active">{{this}}</span>
+        {{else}}
+        <a href="{{../pagination.url}}?page={{this}}" class="pagination__page">{{this}}</a>
+        {{/if}}
+        {{/each}}
+    </div>
+
+    {{#if pagination.hasNextPage}}
+    <a href="{{pagination.url}}?page={{pagination.nextPage}}"
+        class="pagination__link pagination__link--next material-symbols-sharp">
+        arrow_right
+    </a>
+    {{else}}
+    <span class="pagination__link pagination__link--disabled material-symbols-sharp">arrow_right</span>
+    {{/if}}
+</div>
+{{/if}}

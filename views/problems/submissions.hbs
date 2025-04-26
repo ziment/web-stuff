@@ -1,0 +1,41 @@
+{{#contentFor "sidebarActions"}}
+<div class="card">
+    <div class="card__title">
+        Actions
+    </div>
+    <div class="card__content">
+        <ul class="card__action_list">
+            <li><a href="/problems/{{problem.id}}">Back to Problem</a></li>
+            <li><a href="/problems/{{problem.id}}/submit">Submit Solution</a></li>
+        </ul>
+    </div>
+</div>
+{{/contentFor}}
+
+<div class="card">
+    <div class="card__title">Submissions for {{problem.title}}</div>
+    <div class="section__content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>User</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each submissions}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.user.name}}</td>
+                    <td>{{this.fileUrl}}</td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td colspan="6" class="text-center">No submissions yet</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

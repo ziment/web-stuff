@@ -1,0 +1,344 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Article {
+  content: String!
+  createdAt: DateTime!
+  id: ID!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type ArticleAvgAggregate {
+  id: Float
+}
+
+type ArticleCountAggregate {
+  _all: Int!
+  content: Int!
+  createdAt: Int!
+  id: Int!
+  title: Int!
+  updatedAt: Int!
+}
+
+type ArticleMaxAggregate {
+  content: String
+  createdAt: DateTime
+  id: Int
+  title: String
+  updatedAt: DateTime
+}
+
+type ArticleMinAggregate {
+  content: String
+  createdAt: DateTime
+  id: Int
+  title: String
+  updatedAt: DateTime
+}
+
+type ArticleSumAggregate {
+  id: Int
+}
+
+type Contest {
+  _count: ContestCount!
+  endDate: DateTime!
+  id: ID!
+  name: String!
+  problems: [Problem!]
+  startDate: DateTime!
+}
+
+type ContestAvgAggregate {
+  id: Float
+}
+
+type ContestCount {
+  problems: Int!
+}
+
+type ContestCountAggregate {
+  _all: Int!
+  endDate: Int!
+  id: Int!
+  name: Int!
+  startDate: Int!
+}
+
+type ContestMaxAggregate {
+  endDate: DateTime
+  id: Int
+  name: String
+  startDate: DateTime
+}
+
+type ContestMinAggregate {
+  endDate: DateTime
+  id: Int
+  name: String
+  startDate: DateTime
+}
+
+type ContestSumAggregate {
+  id: Int
+}
+
+input CreateArticleDto {
+  content: String!
+  title: String!
+}
+
+input CreateContestDto {
+  endDate: DateTime!
+  name: String!
+  startDate: DateTime!
+}
+
+input CreateProblemDto {
+  contestId: Float!
+  description: String!
+  title: String!
+}
+
+input CreateSubmissionDto {
+  fileUrl: String!
+  problemId: Float!
+  userId: Float!
+}
+
+input CreateUserDto {
+  email: String!
+  name: String
+  password: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createArticle(input: CreateArticleDto!): Article!
+  createContest(input: CreateContestDto!): Contest!
+  createProblem(input: CreateProblemDto!): Problem!
+  createSubmission(input: CreateSubmissionDto!): Submission!
+  createUser(input: CreateUserDto!): User!
+  deleteArticle(id: Float!): Boolean!
+  deleteContest(id: Float!): Boolean!
+  deleteProblem(id: Float!): Boolean!
+  deleteSubmission(id: Float!): Boolean!
+  deleteUser(id: Float!): Boolean!
+  updateArticle(id: Float!, input: UpdateArticleDto!): Article!
+  updateContest(id: Float!, input: UpdateContestDto!): Contest!
+  updateProblem(id: Float!, input: UpdateProblemDto!): Problem!
+  updateSubmission(id: Float!, input: UpdateSubmissionDto!): Submission!
+  updateUser(id: Float!, input: UpdateUserDto!): User!
+}
+
+input PaginationQueryDto {
+  limit: Int = 10
+  page: Int = 1
+}
+
+type Problem {
+  _count: ProblemCount!
+  contest: Contest
+  contestId: Int
+  createdAt: DateTime!
+  description: String!
+  id: ID!
+  submissions: [Submission!]
+  title: String!
+  updatedAt: DateTime!
+}
+
+type ProblemAvgAggregate {
+  contestId: Float
+  id: Float
+}
+
+type ProblemCount {
+  submissions: Int!
+}
+
+type ProblemCountAggregate {
+  _all: Int!
+  contestId: Int!
+  createdAt: Int!
+  description: Int!
+  id: Int!
+  title: Int!
+  updatedAt: Int!
+}
+
+type ProblemMaxAggregate {
+  contestId: Int
+  createdAt: DateTime
+  description: String
+  id: Int
+  title: String
+  updatedAt: DateTime
+}
+
+type ProblemMinAggregate {
+  contestId: Int
+  createdAt: DateTime
+  description: String
+  id: Int
+  title: String
+  updatedAt: DateTime
+}
+
+type ProblemSumAggregate {
+  contestId: Int
+  id: Int
+}
+
+type Query {
+  article(id: Float!): Article
+  articles(paginationQuery: PaginationQueryDto!): [Article!]!
+  contest(id: Float!): Contest
+  contests(paginationQuery: PaginationQueryDto!): [Contest!]!
+  problem(id: Float!): Problem
+  problems(paginationQuery: PaginationQueryDto!): [Problem!]!
+  submission(id: Float!): Submission
+  submissions(paginationQuery: PaginationQueryDto!): [Submission!]!
+  user(id: Float!): User
+  users(paginationQuery: PaginationQueryDto!): [User!]!
+}
+
+type Submission {
+  createdAt: DateTime!
+  fileUrl: String!
+  id: ID!
+  problem: Problem!
+  problemId: Int!
+  user: User!
+  userId: Int!
+}
+
+type SubmissionAvgAggregate {
+  id: Float
+  problemId: Float
+  userId: Float
+}
+
+type SubmissionCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  fileUrl: Int!
+  id: Int!
+  problemId: Int!
+  userId: Int!
+}
+
+type SubmissionMaxAggregate {
+  createdAt: DateTime
+  fileUrl: String
+  id: Int
+  problemId: Int
+  userId: Int
+}
+
+type SubmissionMinAggregate {
+  createdAt: DateTime
+  fileUrl: String
+  id: Int
+  problemId: Int
+  userId: Int
+}
+
+type SubmissionSumAggregate {
+  id: Int
+  problemId: Int
+  userId: Int
+}
+
+input UpdateArticleDto {
+  content: String
+  title: String
+}
+
+input UpdateContestDto {
+  endDate: DateTime
+  name: String
+  startDate: DateTime
+}
+
+input UpdateProblemDto {
+  contestId: Float
+  description: String
+  title: String
+}
+
+input UpdateSubmissionDto {
+  code: String
+  problemId: Float
+  userId: Float
+}
+
+input UpdateUserDto {
+  email: String
+  name: String
+  password: String
+}
+
+type User {
+  _count: UserCount!
+  createdAt: DateTime!
+  email: String!
+  id: ID!
+  name: String
+  password: String!
+  rating: Int!
+  submissions: [Submission!]
+  updatedAt: DateTime!
+}
+
+type UserAvgAggregate {
+  id: Float
+  rating: Float
+}
+
+type UserCount {
+  submissions: Int!
+}
+
+type UserCountAggregate {
+  _all: Int!
+  createdAt: Int!
+  email: Int!
+  id: Int!
+  name: Int!
+  password: Int!
+  rating: Int!
+  updatedAt: Int!
+}
+
+type UserMaxAggregate {
+  createdAt: DateTime
+  email: String
+  id: Int
+  name: String
+  password: String
+  rating: Int
+  updatedAt: DateTime
+}
+
+type UserMinAggregate {
+  createdAt: DateTime
+  email: String
+  id: Int
+  name: String
+  password: String
+  rating: Int
+  updatedAt: DateTime
+}
+
+type UserSumAggregate {
+  id: Int
+  rating: Int
+}

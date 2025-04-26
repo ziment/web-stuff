@@ -1,0 +1,23 @@
+<header class="header">
+    <img class="header__logo" src="/img/logo_uglycoal.png" alt="Logo">
+    <nav class="header__nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="/articles"
+                    class="nav__link">Home</a></li>
+            <li class="nav__item"><a href="/contests"
+                    class="nav__link">Contests</a></li>
+            <li class="nav__item"><a href="/users/leaderboard"
+                    class="nav__link">Leaderboard</a></li>
+        </ul>
+    </nav>
+
+    {{#unless user}}
+    <div class="header__user">
+        <div class="user__name">Not logged in</div>
+    </div>
+    {{else}}
+    <div class="header__user">
+        <div class="user__name">Logged in as: {{user}}</div>
+    </div>
+    {{/unless}}
+</header>

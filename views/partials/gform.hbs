@@ -1,0 +1,30 @@
+<form action="{{actionUrl}}" method="POST">
+    {{#if isEdit}}
+    <input type="hidden" name="_method" value="PATCH">
+    {{/if}}
+
+    <div class="form-group">
+        <label for="title">{{titleName}}</label>
+        <input type="text" id="{{lowercase titleName}}" name="{{lowercase titleName}}" value="{{title}}" required>
+    </div>
+
+    <div class="form-group">
+        <label for="{{lowercase contentName}}">{{contentName}}</label>
+        <textarea id="{{lowercase contentName}}" name="{{lowercase contentName}}" rows="10" value="{{content}}"
+            required></textarea>
+    </div>
+
+    <div class="section__footer">
+        <button type="submit" class="button">
+            {{submitButtonText}}
+        </button>
+        {{#if isEdit}}
+        <a href="{{deleteUrl}}" class="button button--danger">Delete</a>
+        {{/if}}
+    </div>
+
+    <!-- todo: cringe -->
+    {{#if contestId}}
+    <input type="hidden" name="contestId" value="{{contestId}}" />
+    {{/if}}
+</form>
